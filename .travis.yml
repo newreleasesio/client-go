@@ -1,0 +1,13 @@
+language: go
+
+go:
+  - 1.12.4
+
+install:
+  - go get -v newreleases.io/newreleases/...
+
+before_script:
+  - go vet -v newreleases.io/newreleases/...
+
+script:
+  - go test -v -race newreleases.io/newreleases/...
