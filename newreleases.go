@@ -43,6 +43,7 @@ type Client struct {
 	Projects               *ProjectsService
 	Releases               *ReleasesService
 	SlackChannels          *SlackChannelsService
+	TelegramChats          *TelegramChatsService
 	HangoutsChatWebhooks   *HangoutsChatWebhooksService
 	MicrosoftTeamsWebhooks *MicrosoftTeamsWebhooksService
 	Webhooks               *WebhooksService
@@ -85,6 +86,7 @@ func newClient(httpClient *http.Client) (c *Client) {
 	c.Projects = (*ProjectsService)(&c.service)
 	c.Releases = (*ReleasesService)(&c.service)
 	c.SlackChannels = (*SlackChannelsService)(&c.service)
+	c.TelegramChats = (*TelegramChatsService)(&c.service)
 	c.HangoutsChatWebhooks = (*HangoutsChatWebhooksService)(&c.service)
 	c.MicrosoftTeamsWebhooks = (*MicrosoftTeamsWebhooksService)(&c.service)
 	c.Webhooks = (*WebhooksService)(&c.service)

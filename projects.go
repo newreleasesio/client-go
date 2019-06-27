@@ -24,6 +24,7 @@ type Project struct {
 	URL                    string            `json:"url"`
 	EmailNotification      EmailNotification `json:"email_notification,omitempty"`
 	SlackIDs               []string          `json:"slack_channels,omitempty"`
+	TelegramChatIDs        []string          `json:"telegram_chats,omitempty"`
 	HangoutsChatWebhookIDs []string          `json:"hangouts_chat_webhooks,omitempty"`
 	MSTeamsWebhookIDs      []string          `json:"microsoft_teams_webhooks,omitempty"`
 	WebhookIDs             []string          `json:"webhooks,omitempty"`
@@ -146,6 +147,7 @@ func (s *ProjectsService) get(ctx context.Context, projectRef string) (project *
 type ProjectOptions struct {
 	EmailNotification      *EmailNotification `json:"email_notification"`
 	SlackIDs               []string           `json:"slack_channels"`
+	TelegramChatIDs        []string           `json:"telegram_chats"`
 	HangoutsChatWebhookIDs []string           `json:"hangouts_chat_webhooks"`
 	MSTeamsWebhookIDs      []string           `json:"microsoft_teams_webhooks"`
 	WebhookIDs             []string           `json:"webhooks"`

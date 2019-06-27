@@ -404,6 +404,7 @@ var (
 		Provider:               "github",
 		EmailNotification:      newreleases.EmailNotificationHourly,
 		SlackIDs:               []string{"slack123"},
+		TelegramChatIDs:        []string{"telegram123"},
 		HangoutsChatWebhookIDs: []string{"hangouts123"},
 		MSTeamsWebhookIDs:      []string{"teams123"},
 		WebhookIDs:             []string{"webhook123", "webhook124"},
@@ -414,6 +415,7 @@ var (
 	projectOptions = &newreleases.ProjectOptions{
 		EmailNotification:      &newreleases.EmailNotificationHourly,
 		SlackIDs:               []string{"slack123"},
+		TelegramChatIDs:        []string{"telegram123"},
 		HangoutsChatWebhookIDs: []string{"hangouts123"},
 		MSTeamsWebhookIDs:      []string{"teams123"},
 		WebhookIDs:             []string{"webhook123", "webhook124"},
