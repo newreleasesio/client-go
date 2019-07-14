@@ -48,7 +48,8 @@ var (
 // Exclusion holds information about a regular expression used
 // to filter release versions.
 type Exclusion struct {
-	Value string `json:"value"`
+	Value   string `json:"value"`
+	Inverse bool   `json:"inverse"`
 }
 
 type projectsResponse struct {

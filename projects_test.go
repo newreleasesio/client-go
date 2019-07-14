@@ -408,7 +408,7 @@ var (
 		HangoutsChatWebhookIDs: []string{"hangouts123"},
 		MSTeamsWebhookIDs:      []string{"teams123"},
 		WebhookIDs:             []string{"webhook123", "webhook124"},
-		Exclusions:             []newreleases.Exclusion{{Value: "^1.9"}},
+		Exclusions:             []newreleases.Exclusion{{Value: "^1.9", Inverse: true}},
 		ExcludePrereleases:     true,
 		ExcludeUpdated:         false,
 	}
@@ -419,7 +419,7 @@ var (
 		HangoutsChatWebhookIDs: []string{"hangouts123"},
 		MSTeamsWebhookIDs:      []string{"teams123"},
 		WebhookIDs:             []string{"webhook123", "webhook124"},
-		Exclusions:             []newreleases.Exclusion{{Value: "^1.9"}},
+		Exclusions:             []newreleases.Exclusion{{Value: "^1.9", Inverse: true}},
 		ExcludePrereleases:     newreleases.Bool(true),
 		ExcludeUpdated:         newreleases.Bool(false),
 	}
