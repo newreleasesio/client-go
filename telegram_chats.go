@@ -21,7 +21,7 @@ type TelegramChat struct {
 	Name string `json:"name"`
 }
 
-// List returns all connected Slack Channels.
+// List returns all connected Telegram Chats.
 func (s *TelegramChatsService) List(ctx context.Context) (channels []TelegramChat, err error) {
 
 	type TelegramChatsResponse struct {

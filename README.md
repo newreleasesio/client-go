@@ -45,6 +45,7 @@ This client implements all NewReleases API features.
 - Get tracked providers
 - Get added Slack Channels
 - Get added Telegram Chats
+- Get added Dissord Channels
 - Get added Hangouts Chat webhooks
 - Get added Microsoft Teams webhooks
 - Get added custom Webhooks

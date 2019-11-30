@@ -20,7 +20,7 @@ func TestSlackChannelsService_List(t *testing.T) {
 
 	mux.HandleFunc("/v1/slack-channels", requireMethod("GET", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", jsonContentType)
-		fmt.Fprintln(w, clackChannelsServiceList)
+		fmt.Fprintln(w, slackChannelsServiceList)
 	}))
 
 	got, err := client.SlackChannels.List(context.Background())
@@ -28,11 +28,11 @@ func TestSlackChannelsService_List(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	assertEqual(t, "", got, clackChannelsServiceListWant)
+	assertEqual(t, "", got, slackChannelsServiceListWant)
 }
 
 var (
-	clackChannelsServiceList = `
+	slackChannelsServiceList = `
 	{
 		"channels": [
 			{
@@ -43,7 +43,7 @@ var (
 		]
 	}
 	`
-	clackChannelsServiceListWant = []newreleases.SlackChannel{
+	slackChannelsServiceListWant = []newreleases.SlackChannel{
 		{
 			ID:       "00q3pe8gf7322d8n52bgrl551",
 			Channel:  "releases",
