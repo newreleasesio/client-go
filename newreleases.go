@@ -181,9 +181,11 @@ func drain(r io.ReadCloser) {
 	go func() {
 		// Panicking here does not put data in
 		// an inconsistent state.
-		defer recover()
+		defer func() {
+			_ = recover()
+		}()
 
-		io.Copy(ioutil.Discard, r)
+		_, _ = io.Copy(ioutil.Discard, r)
 		r.Close()
 	}()
 }

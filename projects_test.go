@@ -329,7 +329,7 @@ func TestProjectsService_Add(t *testing.T) {
 			panic(err)
 		}
 		w.Header().Set("Content-Type", jsonContentType)
-		w.Write(d)
+		_, _ = w.Write(d)
 	}))
 
 	got, err := client.Projects.Add(context.Background(), "github", "golang/go", projectOptions)
@@ -358,7 +358,7 @@ func TestProjectsService_UpdateByName(t *testing.T) {
 			panic(err)
 		}
 		w.Header().Set("Content-Type", jsonContentType)
-		w.Write(d)
+		_, _ = w.Write(d)
 	}))
 
 	got, err := client.Projects.UpdateByName(context.Background(), "github", "golang/go", projectOptions)
@@ -387,7 +387,7 @@ func TestProjectsService_UpdateByID(t *testing.T) {
 			panic(err)
 		}
 		w.Header().Set("Content-Type", jsonContentType)
-		w.Write(d)
+		_, _ = w.Write(d)
 	}))
 
 	got, err := client.Projects.UpdateByID(context.Background(), "pf4w494lbjsd3ydp5hnf4gsptw", projectOptions)
