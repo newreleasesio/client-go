@@ -143,6 +143,7 @@ func (c *Client) request(ctx context.Context, method, path string, body, v inter
 	if err != nil {
 		return err
 	}
+	req = req.WithContext(ctx)
 
 	if body != nil {
 		req.Header.Set("Content-Type", contentType)
