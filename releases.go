@@ -8,6 +8,7 @@ package newreleases
 import (
 	"context"
 	"net/http"
+	"net/url"
 	"strconv"
 	"time"
 )
@@ -70,7 +71,7 @@ func (s *ReleasesService) GetByProjectName(ctx context.Context, provider, projec
 }
 
 func (s *ReleasesService) get(ctx context.Context, projectRef, version string) (release *Release, err error) {
-	err = s.client.request(ctx, http.MethodGet, "v1/projects/"+projectRef+"/releases/"+version, nil, &release)
+	err = s.client.request(ctx, http.MethodGet, "v1/projects/"+projectRef+"/releases/"+url.PathEscape(version), nil, &release)
 	return release, err
 }
 
@@ -95,6 +96,6 @@ func (s *ReleasesService) GetNoteByProjectName(ctx context.Context, provider, pr
 }
 
 func (s *ReleasesService) getNote(ctx context.Context, projectRef, version string) (note *ReleaseNote, err error) {
-	err = s.client.request(ctx, http.MethodGet, "v1/projects/"+projectRef+"/releases/"+version+"/note", nil, &note)
+	err = s.client.request(ctx, http.MethodGet, "v1/projects/"+projectRef+"/releases/"+url.PathEscape(version)+"/note", nil, &note)
 	return note, err
 }
