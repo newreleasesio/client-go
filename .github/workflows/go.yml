@@ -14,7 +14,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v1
       with:
-        go-version: 1.x
+        go-version: 1.14
 
     - name: Set up env
       run: |
@@ -38,7 +38,7 @@ jobs:
           ${{ runner.OS }}-
 
     - name: Set up GolangCI-Lint
-      run: go get -u github.com/golangci/golangci-lint/cmd/golangci-lint@v1.24.0
+      run: go get -u github.com/golangci/golangci-lint/cmd/golangci-lint@v1.29.0
       env:
         GO111MODULE: on
       working-directory: ~
