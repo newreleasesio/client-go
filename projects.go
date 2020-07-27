@@ -40,6 +40,7 @@ type EmailNotification string
 // Available email notification options.
 var (
 	EmailNotificationNone    EmailNotification = "none"
+	EmailNotificationInstant EmailNotification = "instant"
 	EmailNotificationHourly  EmailNotification = "hourly"
 	EmailNotificationDaily   EmailNotification = "daily"
 	EmailNotificationWeekly  EmailNotification = "weekly"
