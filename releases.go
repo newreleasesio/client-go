@@ -21,6 +21,7 @@ type ReleasesService service
 type Release struct {
 	Version      string    `json:"version"`
 	Date         time.Time `json:"date"`
+	CVE          []string  `json:"cve,omitempty"`
 	IsPrerelease bool      `json:"is_prerelease,omitempty"`
 	IsUpdated    bool      `json:"is_updated,omitempty"`
 	IsExcluded   bool      `json:"is_excluded,omitempty"`

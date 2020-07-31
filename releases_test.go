@@ -69,6 +69,7 @@ var (
 			{
 				"version": "v10.15.3",
 				"date": "2019-03-05T17:37:13Z",
+				"CVE": ["CVE-2020-11080"],
 				"has_note": true
 			}
 		],
@@ -106,6 +107,7 @@ var (
 			{
 				Version: "v10.15.3",
 				Date:    parseTime("2019-03-05T17:37:13Z"),
+				CVE:     []string{"CVE-2020-11080"},
 				HasNote: true,
 			},
 		},
