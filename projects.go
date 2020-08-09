@@ -28,6 +28,7 @@ type Project struct {
 	DiscordIDs             []string          `json:"discord_channels,omitempty"`
 	HangoutsChatWebhookIDs []string          `json:"hangouts_chat_webhooks,omitempty"`
 	MSTeamsWebhookIDs      []string          `json:"microsoft_teams_webhooks,omitempty"`
+	MattermostWebhookIDs   []string          `json:"mattermost_webhooks,omitempty"`
 	WebhookIDs             []string          `json:"webhooks,omitempty"`
 	Exclusions             []Exclusion       `json:"exclude_version_regexp,omitempty"`
 	ExcludePrereleases     bool              `json:"exclude_prereleases,omitempty"`
@@ -154,6 +155,7 @@ type ProjectOptions struct {
 	DiscordIDs             []string           `json:"discord_channels"`
 	HangoutsChatWebhookIDs []string           `json:"hangouts_chat_webhooks"`
 	MSTeamsWebhookIDs      []string           `json:"microsoft_teams_webhooks"`
+	MattermostWebhookIDs   []string           `json:"mattermost_webhooks"`
 	WebhookIDs             []string           `json:"webhooks"`
 	Exclusions             []Exclusion        `json:"exclude_version_regexp"`
 	ExcludePrereleases     *bool              `json:"exclude_prereleases"`
