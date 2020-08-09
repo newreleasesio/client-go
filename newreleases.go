@@ -19,7 +19,7 @@ import (
 )
 
 const (
-	version = "1.5.1"
+	version = "1.6.0"
 
 	userAgent   = "newreleases-go/" + version
 	contentType = "application/json; charset=utf-8"
