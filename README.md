@@ -1,6 +1,8 @@
 # NewReleases API v1 Go client
 
+[![Go](https://github.com/newreleasesio/client-go/workflows/Go/badge.svg)](https://github.com/newreleasesio/client-go/actions)
 [![GoDoc](https://godoc.org/newreleases.io/newreleases?status.svg)](https://godoc.org/newreleases.io/newreleases)
+[![NewReleases](https://newreleases.io/badge.svg)](https://newreleases.io/github/newreleasesio/client-go)
 
 Package newreleases is a Go client library for accessing the [NewReleases](https://newreleases.io) v1 API.
 
