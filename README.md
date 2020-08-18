@@ -49,6 +49,7 @@ This client implements all NewReleases API features.
 - Get added Dissord Channels
 - Get added Hangouts Chat webhooks
 - Get added Microsoft Teams webhooks
+- Get added Mattermost webhooks
 - Get added custom Webhooks
 - Get auth keys
 
