@@ -50,6 +50,7 @@ This client implements all NewReleases API features.
 - Get added Hangouts Chat webhooks
 - Get added Microsoft Teams webhooks
 - Get added Mattermost webhooks
+- Get added Rocket.Chat webhooks
 - Get added custom Webhooks
 - Get auth keys
 

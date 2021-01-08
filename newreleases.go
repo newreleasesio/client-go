@@ -48,6 +48,7 @@ type Client struct {
 	HangoutsChatWebhooks   *HangoutsChatWebhooksService
 	MicrosoftTeamsWebhooks *MicrosoftTeamsWebhooksService
 	MattermostWebhooks     *MattermostWebhooksService
+	RocketchatWebhooks     *RocketchatWebhooksService
 	Webhooks               *WebhooksService
 }
 
@@ -93,6 +94,7 @@ func newClient(httpClient *http.Client) (c *Client) {
 	c.HangoutsChatWebhooks = (*HangoutsChatWebhooksService)(&c.service)
 	c.MicrosoftTeamsWebhooks = (*MicrosoftTeamsWebhooksService)(&c.service)
 	c.MattermostWebhooks = (*MattermostWebhooksService)(&c.service)
+	c.RocketchatWebhooks = (*RocketchatWebhooksService)(&c.service)
 	c.Webhooks = (*WebhooksService)(&c.service)
 	return c
 }
