@@ -18,7 +18,7 @@ func TestReleasesService_ListByProjectID(t *testing.T) {
 	client, mux, _, teardown := newClient(t, "")
 	defer teardown()
 
-	mux.HandleFunc("/v1/projects/8wdvh4w9bhsvzclz4ynaqpcpvg/releases", requireMethod("GET", newPagedStaticHndler(releasesServiceList...)))
+	mux.HandleFunc("/v1/projects/8wdvh4w9bhsvzclz4ynaqpcpvg/releases", requireMethod("GET", newPagedStaticHandler(releasesServiceList...)))
 
 	for i, page := range releasesServiceListWant {
 		name := "page " + strconv.Itoa(i+1)
@@ -37,7 +37,7 @@ func TestReleasesService_ListByProjectName(t *testing.T) {
 	client, mux, _, teardown := newClient(t, "")
 	defer teardown()
 
-	mux.HandleFunc("/v1/projects/github/nodejs/node/releases", requireMethod("GET", newPagedStaticHndler(releasesServiceList...)))
+	mux.HandleFunc("/v1/projects/github/nodejs/node/releases", requireMethod("GET", newPagedStaticHandler(releasesServiceList...)))
 
 	for i, page := range releasesServiceListWant {
 		name := "page " + strconv.Itoa(i+1)

@@ -34,6 +34,8 @@ type Project struct {
 	Exclusions             []Exclusion       `json:"exclude_version_regexp,omitempty"`
 	ExcludePrereleases     bool              `json:"exclude_prereleases,omitempty"`
 	ExcludeUpdated         bool              `json:"exclude_updated,omitempty"`
+	Note                   string            `json:"note,omitempty"`
+	TagIDs                 []string          `json:"tags,omitempty"`
 }
 
 // EmailNotification enumerates available options for email notifications.
@@ -67,6 +69,7 @@ type ProjectListOptions struct {
 	Order    ProjectListOrder
 	Reverse  bool
 	Provider string
+	TagID    string
 }
 
 // ProjectListOrder enumerates available project list orders.
@@ -98,6 +101,9 @@ func (s *ProjectsService) List(ctx context.Context, o ProjectListOptions) (proje
 	}
 	if o.Reverse {
 		q.Set("reverse", "")
+	}
+	if o.TagID != "" {
+		q.Set("tag", string(o.TagID))
 	}
 	if query := q.Encode(); query != "" {
 		query = strings.ReplaceAll(query, "reverse=", "reverse")
@@ -147,8 +153,8 @@ func (s *ProjectsService) get(ctx context.Context, projectRef string) (project *
 // If any of the fields have nil value, the option is not set by Add method or
 // changed by UpdateByID or UpdateByName methods. When using update methods,
 // removing all elements must be done by setting an initialized slice, not a nil
-// slice. For boolean pointer methods, there is a convenient function Bool that
-// returns boolean pointer by passing a regular bool value.
+// slice. For boolean pointer methods, there is a convenient functions Bool and
+// String that return boolean pointer by passing a regular value.
 type ProjectOptions struct {
 	EmailNotification      *EmailNotification `json:"email_notification"`
 	SlackIDs               []string           `json:"slack_channels"`
@@ -162,6 +168,8 @@ type ProjectOptions struct {
 	Exclusions             []Exclusion        `json:"exclude_version_regexp"`
 	ExcludePrereleases     *bool              `json:"exclude_prereleases"`
 	ExcludeUpdated         *bool              `json:"exclude_updated"`
+	Note                   *string            `json:"note"`
+	TagIDs                 []string           `json:"tags"`
 }
 
 // Add adds a new project to be tracked.

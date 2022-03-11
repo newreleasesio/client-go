@@ -50,6 +50,7 @@ type Client struct {
 	MattermostWebhooks     *MattermostWebhooksService
 	RocketchatWebhooks     *RocketchatWebhooksService
 	Webhooks               *WebhooksService
+	Tags                   *TagsService
 }
 
 // ClientOptions holds optional parameters for the Client.
@@ -96,6 +97,7 @@ func newClient(httpClient *http.Client) (c *Client) {
 	c.MattermostWebhooks = (*MattermostWebhooksService)(&c.service)
 	c.RocketchatWebhooks = (*RocketchatWebhooksService)(&c.service)
 	c.Webhooks = (*WebhooksService)(&c.service)
+	c.Tags = (*TagsService)(&c.service)
 	return c
 }
 
@@ -251,6 +253,10 @@ type service struct {
 // Bool is a helper routine that allocates a new bool value to store v and
 // returns a pointer to it.
 func Bool(v bool) (p *bool) { return &v }
+
+// String is a helper routine that allocates a new string value to store v and
+// returns a pointer to it.
+func String(v string) (p *string) { return &v }
 
 // roundTripperFunc type is an adapter to allow the use of ordinary functions as
 // http.RoundTripper interfaces. If f is a function with the appropriate

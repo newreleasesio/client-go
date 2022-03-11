@@ -52,6 +52,11 @@ This client implements all NewReleases API features.
 - Get added Mattermost webhooks
 - Get added Rocket.Chat webhooks
 - Get added custom Webhooks
+- List tags
+- Get tag
+- Add tag
+- Update tag
+- Delete tag
 - Get auth keys
 
 ## Examples

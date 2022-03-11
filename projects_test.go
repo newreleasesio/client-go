@@ -21,7 +21,7 @@ func TestProjectsService_List(t *testing.T) {
 	client, mux, _, teardown := newClient(t, "")
 	defer teardown()
 
-	mux.HandleFunc("/v1/projects", requireMethod("GET", newPagedStaticHndler(projectsServiceList...)))
+	mux.HandleFunc("/v1/projects", requireMethod("GET", newPagedStaticHandler(projectsServiceList...)))
 
 	for i, page := range projectsServiceListWant {
 		name := "page " + strconv.Itoa(i+1)
@@ -90,7 +90,7 @@ func TestProjectsService_List_provider(t *testing.T) {
 	client, mux, _, teardown := newClient(t, "")
 	defer teardown()
 
-	mux.HandleFunc("/v1/projects/github", requireMethod("GET", newPagedStaticHndler(projectsServiceList...)))
+	mux.HandleFunc("/v1/projects/github", requireMethod("GET", newPagedStaticHandler(projectsServiceList...)))
 
 	for i, page := range projectsServiceListWant {
 		name := "page " + strconv.Itoa(i+1)
@@ -108,6 +108,29 @@ func TestProjectsService_List_provider(t *testing.T) {
 	}
 }
 
+func TestProjectsService_List_tagID(t *testing.T) {
+	client, mux, _, teardown := newClient(t, "")
+	defer teardown()
+
+	mux.HandleFunc("/v1/projects", requireMethod("GET", func(w http.ResponseWriter, r *http.Request) {
+		if tagID := r.URL.Query().Get("tag"); tagID != "12345678" {
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+		w.Header().Set("Content-Type", jsonContentType)
+		fmt.Fprintln(w, struct{}{})
+	}))
+
+	got, _, err := client.Projects.List(context.Background(), newreleases.ProjectListOptions{
+		Page:  1,
+		TagID: "12345678",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	assertEqual(t, "", got, []newreleases.Project(nil))
+}
 func TestProjectsService_List_providerOrder(t *testing.T) {
 	client, mux, _, teardown := newClient(t, "")
 	defer teardown()
@@ -414,6 +437,7 @@ var (
 		Exclusions:             []newreleases.Exclusion{{Value: "^1.9", Inverse: true}},
 		ExcludePrereleases:     true,
 		ExcludeUpdated:         false,
+		Note:                   "great stuff",
 	}
 	projectOptions = &newreleases.ProjectOptions{
 		EmailNotification:      &newreleases.EmailNotificationHourly,
@@ -428,6 +452,8 @@ var (
 		Exclusions:             []newreleases.Exclusion{{Value: "^1.9", Inverse: true}},
 		ExcludePrereleases:     newreleases.Bool(true),
 		ExcludeUpdated:         newreleases.Bool(false),
+		Note:                   newreleases.String("great stuff"),
+		TagIDs:                 []string{"tag1", "tag2"},
 	}
 )
 

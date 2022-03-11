@@ -6,3 +6,5 @@
 package newreleases
 
 const UserAgent = userAgent
+
+type TagOptionsRequest = tagOptionsRequest

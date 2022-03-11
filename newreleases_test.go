@@ -88,7 +88,7 @@ func newStaticHandler(body string) http.HandlerFunc {
 	}
 }
 
-func newPagedStaticHndler(pages ...string) http.HandlerFunc {
+func newPagedStaticHandler(pages ...string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		page := 1
 		if p := r.URL.Query().Get("page"); p != "" {
