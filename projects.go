@@ -30,6 +30,7 @@ type Project struct {
 	MSTeamsWebhookIDs      []string          `json:"microsoft_teams_webhooks,omitempty"`
 	MattermostWebhookIDs   []string          `json:"mattermost_webhooks,omitempty"`
 	RocketchatWebhookIDs   []string          `json:"rocketchat_webhooks,omitempty"`
+	MatrixRoomIDs          []string          `json:"matrix_rooms,omitempty"`
 	WebhookIDs             []string          `json:"webhooks,omitempty"`
 	Exclusions             []Exclusion       `json:"exclude_version_regexp,omitempty"`
 	ExcludePrereleases     bool              `json:"exclude_prereleases,omitempty"`
@@ -163,6 +164,7 @@ type ProjectOptions struct {
 	HangoutsChatWebhookIDs []string           `json:"hangouts_chat_webhooks"`
 	MSTeamsWebhookIDs      []string           `json:"microsoft_teams_webhooks"`
 	MattermostWebhookIDs   []string           `json:"mattermost_webhooks"`
+	MatrixRoomIDs          []string           `json:"matrix_rooms"`
 	RocketchatWebhookIDs   []string           `json:"rocketchat_webhooks"`
 	WebhookIDs             []string           `json:"webhooks"`
 	Exclusions             []Exclusion        `json:"exclude_version_regexp"`

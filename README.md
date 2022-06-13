@@ -51,6 +51,7 @@ This client implements all NewReleases API features.
 - Get added Microsoft Teams webhooks
 - Get added Mattermost webhooks
 - Get added Rocket.Chat webhooks
+- Get added Matrix Rooms
 - Get added custom Webhooks
 - List tags
 - Get tag

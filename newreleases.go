@@ -49,6 +49,7 @@ type Client struct {
 	MicrosoftTeamsWebhooks *MicrosoftTeamsWebhooksService
 	MattermostWebhooks     *MattermostWebhooksService
 	RocketchatWebhooks     *RocketchatWebhooksService
+	MatrixRooms            *MatrixRoomsService
 	Webhooks               *WebhooksService
 	Tags                   *TagsService
 }
@@ -96,6 +97,7 @@ func newClient(httpClient *http.Client) (c *Client) {
 	c.MicrosoftTeamsWebhooks = (*MicrosoftTeamsWebhooksService)(&c.service)
 	c.MattermostWebhooks = (*MattermostWebhooksService)(&c.service)
 	c.RocketchatWebhooks = (*RocketchatWebhooksService)(&c.service)
+	c.MatrixRooms = (*MatrixRoomsService)(&c.service)
 	c.Webhooks = (*WebhooksService)(&c.service)
 	c.Tags = (*TagsService)(&c.service)
 	return c
