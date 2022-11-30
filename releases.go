@@ -76,6 +76,23 @@ func (s *ReleasesService) get(ctx context.Context, projectRef, version string) (
 	return release, err
 }
 
+// GetLatestByProjectID returns the latest non-excluded version release for a project referenced by
+// its ID.
+func (s *ReleasesService) GetLatestByProjectID(ctx context.Context, projectID string) (release *Release, err error) {
+	return s.getLatest(ctx, projectID)
+}
+
+// GetLatestByProjectName returns the latest non-excluded version release for a project referenced
+// by its provider and name.
+func (s *ReleasesService) GetLatestByProjectName(ctx context.Context, provider, projectName string) (release *Release, err error) {
+	return s.getLatest(ctx, provider+"/"+projectName)
+}
+
+func (s *ReleasesService) getLatest(ctx context.Context, projectRef string) (release *Release, err error) {
+	err = s.client.request(ctx, http.MethodGet, "v1/projects/"+projectRef+"/latest-release", nil, &release)
+	return release, err
+}
+
 // ReleaseNote holds information about an additional note for a specific
 // version.
 type ReleaseNote struct {

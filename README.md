@@ -42,6 +42,7 @@ This client implements all NewReleases API features.
 - Delete project
 - List projects releases
 - Get project release
+- Get latest non-excluded project release
 - Get project release note
 - Get tracked providers
 - Get added Slack Channels

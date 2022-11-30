@@ -153,6 +153,34 @@ func TestReleasesService_GetByProjectName(t *testing.T) {
 	assertEqual(t, "", got, releasesServiceGetWant)
 }
 
+func TestReleasesService_GetLatestByProjectID(t *testing.T) {
+	client, mux, _, teardown := newClient(t, "")
+	defer teardown()
+
+	mux.HandleFunc("/v1/projects/8wdvh4w9bhsvzclz4ynaqpcpvg/latest-release", requireMethod("GET", newStaticHandler(releasesServiceGet)))
+
+	got, err := client.Releases.GetLatestByProjectID(context.Background(), "8wdvh4w9bhsvzclz4ynaqpcpvg")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	assertEqual(t, "", got, releasesServiceGetWant)
+}
+
+func TestReleasesService_GetLatestByProjectName(t *testing.T) {
+	client, mux, _, teardown := newClient(t, "")
+	defer teardown()
+
+	mux.HandleFunc("/v1/projects/github/nodejs/node/latest-release", requireMethod("GET", newStaticHandler(releasesServiceGet)))
+
+	got, err := client.Releases.GetLatestByProjectName(context.Background(), "github", "nodejs/node")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	assertEqual(t, "", got, releasesServiceGetWant)
+}
+
 var (
 	releasesServiceGet = `
 	{
